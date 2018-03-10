@@ -6,32 +6,56 @@
     android:layout_height="match_parent"
     tools:context="com.example.countdowndemo.MainActivity">
 
-    <ImageView
-        android:id="@+id/iv_count_timer"
-        android:layout_width="60dp"
-        android:layout_height="100dp"
-        android:layout_centerInParent="true"
-        android:visibility="gone" />
-    <TextView
-        android:id="@+id/tv_count_timer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:background="@drawable/bg_video_duration"
-        android:paddingBottom="5dp"
-        android:paddingEnd="25dp"
-        android:paddingStart="25dp"
-        android:paddingTop="5dp"
-        android:textColor="#fff"
-        android:textSize="80sp"
-        android:visibility="gone" />
+    <FrameLayout
+        android:id="@+id/fl_count_timer_pic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_count_timer"
+            android:layout_width="60dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_count_timer_num"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_count_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_video_duration"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingEnd="25dp"
+            android:paddingStart="25dp"
+            android:paddingTop="5dp"
+            android:textColor="#fff"
+            android:textSize="80sp" />
+    </FrameLayout>
+
 
     <Button
-        android:id="@+id/btn_count_down"
+        android:id="@+id/btn_count_down_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="3S倒计时开始"/>
+        android:text="3S数字倒计时开始" />
+
+    <Button
+        android:id="@+id/btn_count_down_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_count_down_num"
+        android:layout_centerInParent="true"
+        android:text="3S图片倒计时开始" />
 
 </RelativeLayout>
