@@ -14,8 +14,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView mCountTimerNumView; // 数字倒计时
     private FrameLayout fl_count_timer_pic;
     private ImageView mCountTimerPicView; // 图片倒计时
-    private Button btn_count_down_num; //开始按钮
-    private Button btn_count_down_pic; //开始按钮
+    private Button btn_count_down_num; //开始数字倒计时按钮
+    private Button btn_count_down_pic; //开始图片倒计时按钮
 
     private RecordCountTimer mCountTimer;
 
