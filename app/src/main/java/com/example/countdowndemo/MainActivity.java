@@ -16,8 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView mCountTimerPicView; //图片倒计时
     private Button btn_count_down_num; //开始数字倒计时按钮
     private Button btn_count_down_pic; //开始图片倒计时按钮
-
-    private RecordCountTimer mCountTimer;
+    private RecordCountTimer mCountTimer; //倒计时
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
