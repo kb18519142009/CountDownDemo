@@ -10,70 +10,69 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private FrameLayout fl_count_timer_num;
-    private TextView mCountTimerNumView; //数字倒计时
-    private FrameLayout fl_count_timer_pic;
-    private ImageView mCountTimerPicView; //图片倒计时
-    private Button btn_count_down_num; //开始数字倒计时按钮
-    private Button btn_count_down_pic; //开始图片倒计时按钮
-    private RecordCountTimer mCountTimer; //倒计时
+    private FrameLayout mCountDownNumLayout;
+    private TextView mCountDownNumView; //数字倒计时
+    private FrameLayout mCountDownPicLayout;
+    private ImageView mCountDownPicView; //图片倒计时
+    private Button mCountDownNumBtn; //开始数字倒计时按钮
+    private Button mCountDownPicBtn; //开始图片倒计时按钮
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fl_count_timer_num = findViewById(R.id.fl_count_timer_num);
-        mCountTimerNumView = findViewById(R.id.tv_count_timer);
-        fl_count_timer_pic = findViewById(R.id.fl_count_timer_pic);
-        mCountTimerPicView = findViewById(R.id.iv_count_timer);
-        btn_count_down_num = findViewById(R.id.btn_count_down_num);
-        btn_count_down_num.setOnClickListener(this);
-        btn_count_down_pic = findViewById(R.id.btn_count_down_pic);
-        btn_count_down_pic.setOnClickListener(this);
+        mCountDownNumLayout = findViewById(R.id.fl_count_timer_num);
+        mCountDownNumView = findViewById(R.id.tv_count_timer);
+        mCountDownPicLayout = findViewById(R.id.fl_count_timer_pic);
+        mCountDownPicView = findViewById(R.id.iv_count_timer);
+        mCountDownNumBtn = findViewById(R.id.btn_count_down_num);
+        mCountDownNumBtn.setOnClickListener(this);
+        mCountDownPicBtn = findViewById(R.id.btn_count_down_pic);
+        mCountDownPicBtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v == btn_count_down_num) {
-            mCountTimer = new RecordCountTimer(mCountTimerNumView);
-            mCountTimer.setOnCountTimerListener(new RecordCountTimer.OnCountTimerListener() {
+        if (v == mCountDownNumBtn) {
+            RecordCountTimer countTimer = new RecordCountTimer(mCountDownNumView);
+            countTimer.setOnCountTimerListener(new RecordCountTimer.OnCountTimerListener() {
                 @Override
                 public void onStart() {
                     //倒计时开始
-                    btn_count_down_num.setVisibility(View.GONE);
-                    btn_count_down_pic.setVisibility(View.GONE);
-                    fl_count_timer_num.setVisibility(View.VISIBLE);
+                    mCountDownNumBtn.setVisibility(View.GONE);
+                    mCountDownPicBtn.setVisibility(View.GONE);
+                    mCountDownNumLayout.setVisibility(View.VISIBLE);
                 }
 
                 @Override
                 public void onFinish() {
                     //倒计时结束
-                    fl_count_timer_num.setVisibility(View.GONE);
-                    btn_count_down_num.setVisibility(View.VISIBLE);
-                    btn_count_down_pic.setVisibility(View.VISIBLE);
+                    mCountDownNumLayout.setVisibility(View.GONE);
+                    mCountDownNumBtn.setVisibility(View.VISIBLE);
+                    mCountDownPicBtn.setVisibility(View.VISIBLE);
                 }
             });
-            mCountTimer.start();
-        } else if (v == btn_count_down_pic) {
-            mCountTimer = new RecordCountTimer(mCountTimerPicView);
-            mCountTimer.setOnCountTimerListener(new RecordCountTimer.OnCountTimerListener() {
+            countTimer.start();
+        } else if (v == mCountDownPicBtn) {
+            RecordCountTimer countTimer = new RecordCountTimer(mCountDownPicView);
+            countTimer.setOnCountTimerListener(new RecordCountTimer.OnCountTimerListener() {
                 @Override
                 public void onStart() {
                     //倒计时开始
-                    btn_count_down_pic.setVisibility(View.GONE);
-                    btn_count_down_num.setVisibility(View.GONE);
-                    fl_count_timer_pic.setVisibility(View.VISIBLE);
+                    mCountDownPicBtn.setVisibility(View.GONE);
+                    mCountDownNumBtn.setVisibility(View.GONE);
+                    mCountDownPicLayout.setVisibility(View.VISIBLE);
                 }
 
                 @Override
                 public void onFinish() {
                     //倒计时结束
-                    fl_count_timer_pic.setVisibility(View.GONE);
-                    btn_count_down_pic.setVisibility(View.VISIBLE);
-                    btn_count_down_num.setVisibility(View.VISIBLE);
+                    mCountDownPicLayout.setVisibility(View.GONE);
+                    mCountDownPicBtn.setVisibility(View.VISIBLE);
+                    mCountDownNumBtn.setVisibility(View.VISIBLE);
                 }
             });
-            mCountTimer.start();
+            countTimer.start();
         }
     }
 }
