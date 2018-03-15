@@ -10,9 +10,9 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private FrameLayout mCountDownNumLayout;
+    private FrameLayout mCountDownNumLayout; //数字倒计时布局
     private TextView mCountDownNumView; //数字倒计时
-    private FrameLayout mCountDownPicLayout;
+    private FrameLayout mCountDownPicLayout; //图片倒计时布局
     private ImageView mCountDownPicView; //图片倒计时
     private Button mCountDownNumBtn; //开始数字倒计时按钮
     private Button mCountDownPicBtn; //开始图片倒计时按钮
